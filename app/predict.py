@@ -1,9 +1,14 @@
 import json
 import joblib
 import pandas as pd
+import os
 
-MODEL_PATH = "artifacts/model.pkl"
-THRESH_PATH = "artifacts/threshold.json"
+# Get the directory where this file is located
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+
+# Build absolute paths to artifacts
+MODEL_PATH = os.path.join(BASE_DIR, "..", "artifacts", "model.pkl")
+THRESH_PATH = os.path.join(BASE_DIR, "..", "artifacts", "threshold.json")
 
 _model = None
 _threshold = None
@@ -22,4 +27,8 @@ def predict_one(features: dict):
     X = pd.DataFrame([features])
     proba = float(model.predict_proba(X)[:, 1][0])
     pred = int(proba >= threshold)
-    return proba, pred, threshold
+    return {
+        "readmission_probability": proba,
+        "predicted_readmission": pred,
+        "threshold": threshold
+    }
