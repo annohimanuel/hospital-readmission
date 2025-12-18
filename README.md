@@ -65,7 +65,7 @@ Notes
 Author
 Imanuel Annoh
 
-[![Deploy to Render](https://render.com/images/deploy-to-render-button.svg)](https://render.com/deploy?repo=https://github.com/<your-username>/<your-repo>)
+[![Deploy to Render](https://render.com/images/deploy-to-render-button.svg)](https://render.com/deploy?repo=https://github.com/annohimanuel/hospital-readmission)
 
 
 
